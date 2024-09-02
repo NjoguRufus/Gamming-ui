@@ -1,7 +1,5 @@
 // src/components/MainContent.js
 import React from 'react';
-import ThreeDCube from './ThreeDCube';
-import ThreeDTorus from './ThreeDTorus';
 import ThreeDPyramid from './ThreeDPyramid';
 import { motion } from 'framer-motion';
 
@@ -10,17 +8,7 @@ const MainContent = () => {
     <main className="flex-1 bg-gray-900 text-white p-6">
       <h1 className="text-3xl font-bold mb-6">Welcome to the Future</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* 3D Cube */}
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-2">3D Interactive Cube</h2>
-          <ThreeDCube />
-        </div>
-
-        {/* 3D Torus */}
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-2">3D Interactive Torus</h2>
-          <ThreeDTorus />
-        </div>
+        
 
         {/* 3D Pyramid */}
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
