@@ -1,7 +1,5 @@
 // src/components/MainContent.js
 import React from 'react';
-import ThreeDCube from './ThreeDCube';
-import ThreeDTorus from './ThreeDTorus';
 import ThreeDPyramid from './ThreeDPyramid';
 import { motion } from 'framer-motion';
 
