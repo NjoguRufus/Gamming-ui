@@ -1,38 +1,51 @@
-// src/components/ThreeDPyramid.js
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
+// src/components/MainContent.js
+import React from 'react';
+import ThreeDCube from './ThreeDCube';
+import ThreeDTorus from './ThreeDTorus';
+import ThreeDPyramid from './ThreeDPyramid';
+import { motion } from 'framer-motion';
 
-const RotatingPyramid = () => {
-  const meshRef = useRef();
-  
-  useFrame(() => {
-    meshRef.current.rotation.x += 0.02;
-    meshRef.current.rotation.y += 0.02;
-  });
-
+const MainContent = () => {
   return (
-    <mesh ref={meshRef}>
-      <coneGeometry args={[1, 2, 4]} /> {/* Pyramid shape */}
-      <meshStandardMaterial color="blue" /> {/* Use a solid color for testing */}
-    </mesh>
-  );
-};
+    <main className="flex-1 bg-gray-900 text-white p-6">
+      <h1 className="text-3xl font-bold mb-6">Welcome to the Future</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 3D Cube */}
+        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+          <h2 className="text-xl font-semibold mb-2">3D Interactive Cube</h2>
+          <ThreeDCube />
+        </div>
 
-const ThreeDPyramid = () => {
-  return (
-    <Canvas className="h-64">
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} />
-      <spotLight position={[-5, 5, 10]} angle={0.3} penumbra={1} intensity={1} castShadow />
-      <RotatingPyramid />
-      <OrbitControls />
-      <EffectComposer>
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
-      </EffectComposer>
-    </Canvas>
-  );
-};
+        {/* 3D Torus */}
+        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+          <h2 className="text-xl font-semibold mb-2">3D Interactive Torus</h2>
+          <ThreeDTorus />
+        </div>
 
-export default ThreeDPyramid;
+        {/* 3D Pyramid */}
+        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+          <h2 className="text-xl font-semibold mb-2">3D Interactive Pyramid</h2>
+          <ThreeDPyramid />
+        </div>
+
+        {/* Example of a futuristic card with animation */}
+        <motion.div
+          className="bg-gray-800 p-4 rounded-lg shadow-lg"
+          whileHover={{ scale: 1.1 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <h2 className="text-xl font-semibold mb-2">Player Profile</h2>
+          <p className="text-gray-400">Level: 42</p>
+          <p className="text-gray-400">Experience: 18,000 XP</p>
+          <button className="mt-4 py-2 px-4 bg-blue-500 rounded hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-blue-500/50">
+            View Details
+          </button>
+        </motion.div>
+      </div>
+    </main>
+  );
+}
+
+export default MainContent;
