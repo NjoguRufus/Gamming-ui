@@ -1,7 +1,7 @@
 // src/components/MainContent.js
 import React from 'react';
 import ThreeDCube from './ThreeDCube';
-import ThreeDSphere from './ThreeDSphere';
+//import ThreeDSphere from './ThreeDSphere';
 import { motion } from 'framer-motion';
 
 const MainContent = () => {
