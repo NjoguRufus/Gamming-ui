@@ -1,7 +1,6 @@
 // src/components/MainContent.js
 import React from 'react';
 import ThreeDCube from './ThreeDCube';
-//import ThreeDSphere from './ThreeDSphere';
 import { motion } from 'framer-motion';
 
 const MainContent = () => {
@@ -9,19 +8,11 @@ const MainContent = () => {
     <main className="flex-1 bg-gray-900 text-white p-6">
       <h1 className="text-3xl font-bold mb-6">Welcome to the Future</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* 3D Cube */}
+        {/* 3D Element */}
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold mb-2">3D Interactive Cube</h2>
           <ThreeDCube />
         </div>
-
-        {/* Remove or comment this section */}
-        {/* 
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-2">3D Interactive Sphere</h2>
-          <ThreeDSphere />
-        </div> 
-        */}
 
         {/* Example of a futuristic card with animation */}
         <motion.div
