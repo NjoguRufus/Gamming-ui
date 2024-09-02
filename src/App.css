@@ -1,21 +1,17 @@
-/* src/App.css */
 .App {
+  position: relative;
   text-align: center;
   color: white;
   background-color: #000;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
 }
 
 canvas {
   display: block;
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
