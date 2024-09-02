@@ -6,7 +6,7 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 const RotatingTorus = () => {
   const meshRef = useRef();
-  const texture = useTexture('file:///C:/Users/NJOGU/Downloads/TCom_rock_boulder_001_header.jpg'); // Replace with your texture path
+  const texture = useTexture(''); // Replace with your texture path
   
   useFrame(() => {
     meshRef.current.rotation.x += 0.01;
