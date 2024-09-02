@@ -1,4 +1,3 @@
-// src/ThreeScene.js
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { EffectComposer, RenderPass } from 'three-stdlib';
@@ -17,7 +16,7 @@ const ThreeScene = () => {
     mountRef.current.appendChild(renderer.domElement);
 
     // Create a glowing sphere
-    const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+    const sphereGeometry = new THREE.SphereBufferGeometry(1, 32, 32);
     const sphereMaterial = new THREE.MeshStandardMaterial({
       color: 0x00ff00,
       emissive: 0x00ff00,
@@ -32,16 +31,18 @@ const ThreeScene = () => {
     scene.add(light);
 
     // Create a particle system
-    const particles = new THREE.Geometry();
     const particleCount = 5000;
-    for (let i = 0; i < particleCount; i++) {
-      const particle = new THREE.Vector3(
-        Math.random() * 2000 - 1000,
-        Math.random() * 2000 - 1000,
-        Math.random() * 2000 - 1000
-      );
-      particles.vertices.push(particle);
+    const particles = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = Math.random() * 2000 - 1000;
+      positions[i + 1] = Math.random() * 2000 - 1000;
+      positions[i + 2] = Math.random() * 2000 - 1000;
     }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
     const particleMaterial = new THREE.PointsMaterial({
       color: 0x888888,
       size: 0.5,
@@ -49,6 +50,7 @@ const ThreeScene = () => {
       blending: THREE.AdditiveBlending,
       transparent: true
     });
+
     const particleSystem = new THREE.Points(particles, particleMaterial);
     scene.add(particleSystem);
 
@@ -75,7 +77,7 @@ const ThreeScene = () => {
         time: { value: 0 }
       }
     });
-    const shaderGeometry = new THREE.PlaneGeometry(5, 5);
+    const shaderGeometry = new THREE.PlaneBufferGeometry(5, 5);
     const shaderMesh = new THREE.Mesh(shaderGeometry, shaderMaterial);
     scene.add(shaderMesh);
 
