@@ -14,12 +14,14 @@ const MainContent = () => {
           <h2 className="text-xl font-semibold mb-2">3D Interactive Cube</h2>
           <ThreeDCube />
         </div>
-        
-        {/* 3D Sphere */}
+
+        {/* Remove or comment this section */}
+        {/* 
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold mb-2">3D Interactive Sphere</h2>
           <ThreeDSphere />
-        </div>
+        </div> 
+        */}
 
         {/* Example of a futuristic card with animation */}
         <motion.div
